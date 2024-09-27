@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.ads4.hexagonal.core.domain.Autor;
 
-public interface AutorServicePort {
+public interface AutorRepositoryPort {
 
-    Autor createAutor(Autor autor);
+    Autor create(Autor autor);
 
-    List<Autor> listAutor();
+    List<Autor> findAll();
 }

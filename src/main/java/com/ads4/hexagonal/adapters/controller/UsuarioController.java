@@ -22,11 +22,12 @@ public class UsuarioController {
     @Autowired
     UsuarioConverter usuarioConverter;
 
-    @PostMapping("/salvar")
-    @ResponseStatus(HttpStatus.CREATED)
-    public UsuarioDto create(@RequestBody UsuarioDto usuarioDto) {
-        return usuarioConverter.toDto(usuarioServicePort.createUsuario(usuarioConverter.toDomain(usuarioDto)));
+    // @PostMapping("/salvar")
+    // @ResponseStatus(HttpStatus.CREATED)
+    // public UsuarioDto create(@RequestBody UsuarioDto usuarioDto) {
+    // return
+    // usuarioConverter.toDto(usuarioServicePort.createUsuario(usuarioConverter.toDomain(usuarioDto)));
 
-    }
+    // }
 
 }

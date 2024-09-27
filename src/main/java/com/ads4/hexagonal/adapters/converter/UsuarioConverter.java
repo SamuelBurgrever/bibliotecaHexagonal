@@ -8,9 +8,9 @@ import com.ads4.hexagonal.core.domain.Usuario;
 @Component
 public class UsuarioConverter {
 
-    public Usuario toDomain(UsuarioDto dto) {
-        return new Usuario(dto.getId(), dto.getNome(), dto.getEmail());
-    }
+    // public Usuario toDomain(UsuarioDto dto) {
+    // // return new Usuario(dto.getId(), dto.getNome(), dto.getEmail());
+    // }
 
     public UsuarioDto toDto(Usuario usuario) {
         return new UsuarioDto(usuario.getId(), usuario.getNome(), usuario.getEmail());

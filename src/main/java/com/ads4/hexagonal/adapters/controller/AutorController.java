@@ -1,7 +1,11 @@
 package com.ads4.hexagonal.adapters.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +31,11 @@ public class AutorController {
     public AutorDto create(@RequestBody AutorDto autorDto) {
         return autorConverter.toDto(autorServicePort.createAutor(autorConverter.toDomain(autorDto)));
 
+    }
+
+    @GetMapping("/listar")
+    public List<AutorDto> listAll() {
+        return autorServicePort.listAutor().stream().map(autorConverter::toDto).collect(Collectors.toList());
     }
 
 }
