@@ -4,9 +4,10 @@ import java.util.List;
 
 import com.ads4.hexagonal.core.domain.Usuario;
 
-public interface UsuarioServicePort {
+public interface UsuarioRepositoryPort {
+    
+    Usuario create(Usuario usuario);
 
-    Usuario createUsuario(Usuario usuario);
+    List<Usuario> findAll();
 
-    List<Usuario> listUsuario();
 }
