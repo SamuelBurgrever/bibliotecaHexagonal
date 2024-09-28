@@ -1,32 +1,27 @@
-package com.ads4.hexagonal.core.domain;
+package com.ads4.hexagonal.adapters.entites;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
-public class Autor {
+@Entity
+@Table(name = "Autor")
+public class AutorEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String nome;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "autor_livro")
-    private List<Livro> livros;
-
-    public Autor() {
+    public AutorEntity() {
     }
 
-    public Autor(int id, String nome) {
+    public AutorEntity(int id, String nome) {
         this.id = id;
         this.nome = nome;
-
     }
 
     public int getId() {
