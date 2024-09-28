@@ -1,7 +1,11 @@
 package com.ads4.hexagonal.adapters.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +33,11 @@ public class UsuarioController {
     // usuarioConverter.toDto(usuarioServicePort.createUsuario(usuarioConverter.toDomain(usuarioDto)));
 
     // }
+
+    @GetMapping("/listar")
+    public List<UsuarioDto> listAll(){
+        return usuarioServicePort.listUsuario().stream().map(usuarioConverter::toDto).collect(Collectors.toList());
+    }
+
 
 }

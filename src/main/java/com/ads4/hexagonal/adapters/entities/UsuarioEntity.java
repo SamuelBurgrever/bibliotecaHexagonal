@@ -1,12 +1,25 @@
-package com.ads4.hexagonal.core.domain;
+package com.ads4.hexagonal.adapters.entities;
 
 import java.util.List;
 
+import com.ads4.hexagonal.core.domain.Emprestimo;
+import com.ads4.hexagonal.core.domain.Reserva;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
-public class Usuario {
+@Entity
+@Table(name = "Usuario")
+
+public class UsuarioEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
     private String nome;
@@ -23,10 +36,10 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario_emprestimo")
     private List<Emprestimo> emprestimos;
 
-    public Usuario() {
+    public UsuarioEntity() {
     }
 
-    public Usuario(int id, String nome, String email, String senha, String cpf, String dataNascimento) {
+    public UsuarioEntity(int id, String nome, String email, String senha, String cpf, String dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -83,20 +96,7 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public List<Reserva> getReservas() {
-        return reservas;
-    }
 
-    public void setReservas(List<Reserva> reservas) {
-        this.reservas = reservas;
-    }
 
-    public List<Emprestimo> getEmprestimos() {
-        return emprestimos;
-    }
-
-    public void setEmprestimos(List<Emprestimo> emprestimos) {
-        this.emprestimos = emprestimos;
-    }
 
 }
