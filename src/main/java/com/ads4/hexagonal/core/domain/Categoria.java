@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,10 +23,9 @@ private List<Livro> livros;
 public Categoria() {
 }
 
-public Categoria(int id, String nome, List<Livro> livros) {
+public Categoria(int id, String nome) {
     this.id = id;
     this.nome = nome;
-    this.livros = livros;
 }
 
 public int getId() {

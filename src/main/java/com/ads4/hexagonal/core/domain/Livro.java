@@ -12,7 +12,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 public class Livro {
-    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,15 +29,20 @@ public class Livro {
     @ManyToOne(cascade = CascadeType.REFRESH)
     private Autor autor_livro;
 
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    private Categoria categoria_livro;
+
     public Livro() {
     }
 
-    public Livro(int id, String nome, List<Emprestimo> emprestimos, List<Reserva> reservas, Autor autor_livro) {
+    public Livro(int id, String nome, List<Emprestimo> emprestimos, List<Reserva> reservas, Autor autor_livro,
+            Categoria categoria_livro) {
         this.id = id;
         this.nome = nome;
         this.emprestimos = emprestimos;
         this.reservas = reservas;
         this.autor_livro = autor_livro;
+        this.categoria_livro = categoria_livro;
     }
 
     public int getId() {
@@ -81,9 +85,12 @@ public class Livro {
         this.autor_livro = autor_livro;
     }
 
-    
-    
+    public Categoria getCategoria_livro() {
+        return categoria_livro;
+    }
 
-
+    public void setCategoria_livro(Categoria categoria_livro) {
+        this.categoria_livro = categoria_livro;
+    }
 
 }
